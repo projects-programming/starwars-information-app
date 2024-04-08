@@ -8,6 +8,8 @@ packages = [{include = "starwars_information_app"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pyqt6 = "^6.6.1"
+requests = "^2.31.0"
 
 
 [build-system]
