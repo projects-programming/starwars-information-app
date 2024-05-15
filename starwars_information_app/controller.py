@@ -9,7 +9,7 @@ data functionality
 import requests as re
 
 def get_api_data(endpoint: str, query=""):
-    domain = "https://swapi.dev/api/"
+    domain = "https://swapi.py4e.com/api/"
     url = domain + endpoint + "/" + query + "/"
     response = re.get(url)
 
