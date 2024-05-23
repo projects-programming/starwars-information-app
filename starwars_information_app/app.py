@@ -21,6 +21,8 @@ class MainWindow(QMainWindow):
         self.resize(640, 480)
         layout = QGridLayout()
 
+        # create the home screen
+
         # title label
         title_label = QLabel("Star Wars Information")
         font = title_label.font()
@@ -36,7 +38,8 @@ class MainWindow(QMainWindow):
         people_label.setStyleSheet("QLabel {color : #DDE6ED; }");
 
         # people combobox
-        
+        people_combo = QComboBox()
+        people_combo.addItems(["Luke Skywalker", "Obi-Wan Kenobi", "Darth Vader"])
 
         # starship label
         starship_label = QLabel("Starships")
@@ -45,6 +48,11 @@ class MainWindow(QMainWindow):
         starship_label.setFont(font)
         starship_label.setStyleSheet("QLabel {color : #DDE6ED; }");
 
+        # starship combobox
+        starship_combo = QComboBox()
+        starship_combo.addItems(["Millennium Falcon", "Death Star", "B-wing"])
+
+
         # planet label
         planet_label = QLabel("Planets")
         font = planet_label.font()
@@ -52,7 +60,11 @@ class MainWindow(QMainWindow):
         planet_label.setFont(font)
         planet_label.setStyleSheet("QLabel {color : #DDE6ED; }");
 
+        # planet combobox
+        planet_combo = QComboBox()
+        planet_combo.addItems(["Dagobah", "Utapau", "Coruscant"])
 
+        # setting the layout
         widget = QWidget()
         widget.setLayout(layout)
 
@@ -61,6 +73,9 @@ class MainWindow(QMainWindow):
         layout.addWidget(people_label, 1, 0, Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(starship_label, 1, 1, Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(planet_label, 1, 2, Qt.AlignmentFlag.AlignHCenter)
+        layout.addWidget(people_combo, 2, 0, Qt.AlignmentFlag.AlignHCenter)
+        layout.addWidget(starship_combo, 2, 1, Qt.AlignmentFlag.AlignHCenter)
+        layout.addWidget(planet_combo, 2, 2, Qt.AlignmentFlag.AlignHCenter)
 
         # Set the central widget of the Window. Widget will expand
         # to take up all the space in the window by default.
