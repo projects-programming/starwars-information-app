@@ -20,7 +20,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Star Wars Information App")
         self.resize(640, 480)
         layout = QGridLayout()
-
+        self.setStyleSheet("background-color: #3399FF;")
         # create the home screen
 
         # title label
@@ -28,14 +28,14 @@ class MainWindow(QMainWindow):
         font = title_label.font()
         font.setPointSize(24)
         title_label.setFont(font)
-        title_label.setStyleSheet("QLabel {color : #DDE6ED; }");
+        title_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 32px;}");
 
         # people label
         people_label = QLabel("People")
         font = people_label.font()
         font.setPointSize(18)
         people_label.setFont(font)
-        people_label.setStyleSheet("QLabel {color : #DDE6ED; }");
+        people_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
 
         # people combobox
         people_combo = QComboBox()
@@ -46,19 +46,18 @@ class MainWindow(QMainWindow):
         font = starship_label.font()
         font.setPointSize(18)
         starship_label.setFont(font)
-        starship_label.setStyleSheet("QLabel {color : #DDE6ED; }");
+        starship_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
 
         # starship combobox
         starship_combo = QComboBox()
         starship_combo.addItems(["Millennium Falcon", "Death Star", "B-wing"])
-
 
         # planet label
         planet_label = QLabel("Planets")
         font = planet_label.font()
         font.setPointSize(18)
         planet_label.setFont(font)
-        planet_label.setStyleSheet("QLabel {color : #DDE6ED; }");
+        planet_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
 
         # planet combobox
         planet_combo = QComboBox()
