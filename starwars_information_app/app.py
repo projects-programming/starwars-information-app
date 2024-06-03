@@ -93,7 +93,7 @@ class MainWindow(QWidget):
         # Create Luke Skywalker page
         self.luke_screen = QWidget()
         self.luke_layout = QGridLayout()
-        self.luke_label = QLabel("Name:")
+        self.luke_label = QLabel("Information on Luke Skywalker:")
         self.luke_result_text = QTextEdit()
 
         # Add Luke page layout and widgets to stacked layout
@@ -101,6 +101,18 @@ class MainWindow(QWidget):
         self.luke_screen.setLayout(self.luke_layout)
         self.luke_layout.addWidget(self.luke_result_text)
         self.stacked_layout.addWidget(self.luke_screen)
+
+        # Create Darth Vader page
+        self.vader_screen = QWidget()
+        self.vader_layout = QGridLayout()
+        self.vader_label = QLabel("Information on Darth Vader:")
+        self.vader_result_text = QTextEdit()
+
+        # add Vader page layout and widgets to stacked layout
+        self.vader_layout.addWidget(self.vader_label)
+        self.vader_screen.setLayout(self.vader_layout)
+        self.vader_layout.addWidget(self.vader_result_text)
+        self.stacked_layout.addWidget(self.vader_screen)
 
         # Add nav and stacked layouts to the main layout
         self.layout.addLayout(nav_layout)
@@ -118,6 +130,8 @@ class MainWindow(QWidget):
 
     def people_vader(self):
         self.stacked_layout.setCurrentIndex(2)
+        vader_results = controller.get_api_data("people", "4")
+        self.vader_result_text.setText(vader_results)
 
     def people_kenobi(self):
         self.stacked_layout.setCurrentIndex(3)
