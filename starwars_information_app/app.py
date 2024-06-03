@@ -12,6 +12,7 @@ from PyQt6.QtWidgets import (
     QStackedLayout,
     QVBoxLayout,
     QHBoxLayout,
+    QTextEdit,
 )
 import controller
 
@@ -93,10 +94,12 @@ class MainWindow(QWidget):
         self.luke_screen = QWidget()
         self.luke_layout = QGridLayout()
         self.luke_label = QLabel("Name:")
+        self.luke_result_text = QTextEdit()
 
         # Add Luke page layout and widgets to stacked layout
         self.luke_layout.addWidget(self.luke_label)
         self.luke_screen.setLayout(self.luke_layout)
+        self.luke_layout.addWidget(self.luke_result_text)
         self.stacked_layout.addWidget(self.luke_screen)
 
         # Add nav and stacked layouts to the main layout
@@ -110,6 +113,8 @@ class MainWindow(QWidget):
 
     def people_luke(self):
         self.stacked_layout.setCurrentIndex(1)
+        luke_results = controller.get_api_data("people", "1")
+        self.luke_result_text.setText(luke_results)
 
     def people_vader(self):
         self.stacked_layout.setCurrentIndex(2)
