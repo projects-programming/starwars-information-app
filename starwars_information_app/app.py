@@ -9,76 +9,120 @@ from PyQt6.QtWidgets import (
     QPushButton,
     QGridLayout,
     QWidget,
+    QStackedLayout,
+    QVBoxLayout,
+    QHBoxLayout,
 )
-
+import controller
 
 # Subclass QMainWindow to customize your application's main window
-class MainWindow(QMainWindow):
+class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
 
         self.setWindowTitle("Star Wars Information App")
         self.resize(640, 480)
-        layout = QGridLayout()
         self.setStyleSheet("background-color: #3399FF;")
-        # create the home screen
+
+        self.layout = QVBoxLayout()
+
+        # add nav buttons to the layout
+        nav_layout = QHBoxLayout()
+        self.home_button = QPushButton("Home")
+        self.home_button.clicked.connect(self.home_page)
+        self.luke_button = QPushButton("Luke Skywalker")
+        self.luke_button.clicked.connect(self.people_luke)
+        self.vader_button = QPushButton("Darth Vader")
+        self.vader_button.clicked.connect(self.people_vader)
+        self.kenobi_button = QPushButton("Obi-Wan Kenobi")
+        self.kenobi_button.clicked.connect(self.people_kenobi)
+
+        # add nav buttons to the layout
+        nav_layout.addWidget(self.home_button)
+        nav_layout.addWidget(self.luke_button)
+        nav_layout.addWidget(self.vader_button)
+        nav_layout.addWidget(self.kenobi_button)
+
+
+        # Create the stacked layout
+        self.stacked_layout = QStackedLayout()
+
+        # Create the home screen
+        self.home_screen = QWidget()
+        self.home_layout = QGridLayout()
+
+        # Home screen widgets
 
         # title label
-        title_label = QLabel("Star Wars Information")
-        font = title_label.font()
+        self.title_label = QLabel("Star Wars Information")
+        font = self.title_label.font()
         font.setPointSize(24)
-        title_label.setFont(font)
-        title_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 32px;}");
+        self.title_label.setFont(font)
+        self.title_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 32px;}");
 
         # people label
-        people_label = QLabel("People")
-        font = people_label.font()
+        self.people_label = QLabel("People")
+        font = self.people_label.font()
         font.setPointSize(18)
-        people_label.setFont(font)
-        people_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
-
-        # people combobox
-        people_combo = QComboBox()
-        people_combo.addItems(["Luke Skywalker", "Obi-Wan Kenobi", "Darth Vader"])
+        self.people_label.setFont(font)
+        self.people_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
 
         # starship label
-        starship_label = QLabel("Starships")
-        font = starship_label.font()
+        self.starship_label = QLabel("Starships")
+        font = self.starship_label.font()
         font.setPointSize(18)
-        starship_label.setFont(font)
-        starship_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
-
-        # starship combobox
-        starship_combo = QComboBox()
-        starship_combo.addItems(["Millennium Falcon", "Death Star", "B-wing"])
+        self.starship_label.setFont(font)
+        self.starship_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
 
         # planet label
-        planet_label = QLabel("Planets")
-        font = planet_label.font()
+        self.planet_label = QLabel("Planets")
+        font = self.planet_label.font()
         font.setPointSize(18)
-        planet_label.setFont(font)
-        planet_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
+        self.planet_label.setFont(font)
+        self.planet_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
 
-        # planet combobox
-        planet_combo = QComboBox()
-        planet_combo.addItems(["Dagobah", "Utapau", "Coruscant"])
+        # Add home layout and widgets to stacked layout
+        self.home_layout.addWidget(self.title_label)
+        self.home_layout.addWidget(self.people_label)
+        self.home_layout.addWidget(self.starship_label)
+        self.home_layout.addWidget(self.planet_label)
+        self.home_screen.setLayout(self.home_layout)
+        self.stacked_layout.addWidget(self.home_screen)
 
-        # setting the layout
-        widget = QWidget()
-        widget.setLayout(layout)
+        # Create Luke Skywalker page
+        self.luke_screen = QWidget()
+        self.luke_layout = QGridLayout()
+        self.luke_label = QLabel("Name:")
 
-        # Add layout
-        layout.addWidget(title_label, 0, 1, Qt.AlignmentFlag.AlignHCenter)
-        layout.addWidget(people_label, 1, 0, Qt.AlignmentFlag.AlignHCenter)
-        layout.addWidget(starship_label, 1, 1, Qt.AlignmentFlag.AlignHCenter)
-        layout.addWidget(planet_label, 1, 2, Qt.AlignmentFlag.AlignHCenter)
-        layout.addWidget(people_combo, 2, 0, Qt.AlignmentFlag.AlignHCenter)
-        layout.addWidget(starship_combo, 2, 1, Qt.AlignmentFlag.AlignHCenter)
-        layout.addWidget(planet_combo, 2, 2, Qt.AlignmentFlag.AlignHCenter)
+        # Add Luke page layout and widgets to stacked layout
+        self.luke_layout.addWidget(self.luke_label)
+        self.luke_screen.setLayout(self.luke_layout)
+        self.stacked_layout.addWidget(self.luke_screen)
 
-        # Set the central widget of the Window. Widget will expand
-        # to take up all the space in the window by default.
-        self.setCentralWidget(widget)
+        # Add nav and stacked layouts to the main layout
+        self.layout.addLayout(nav_layout)
+        self.layout.addLayout(self.stacked_layout)
+
+        self.setLayout(self.layout)
+
+    def home_page(self):
+        self.stacked_layout.setCurrentIndex(0)
+
+    def people_luke(self):
+        self.stacked_layout.setCurrentIndex(1)
+
+    def people_vader(self):
+        self.stacked_layout.setCurrentIndex(2)
+
+    def people_kenobi(self):
+        self.stacked_layout.setCurrentIndex(3)
+
+def searching(self):
+
+    # When starship combobox gets an item clicked get the data on the starship
+    if self.starship_combo.activated():
+        results = controller.get_api_data(self)
+        print(results)
 
 
 app = QApplication(sys.argv)
