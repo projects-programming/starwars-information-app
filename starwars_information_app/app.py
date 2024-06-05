@@ -114,6 +114,7 @@ class MainWindow(QWidget):
         self.luke_screen = QWidget()
         self.luke_layout = QGridLayout()
         self.luke_label = QLabel("Information on Luke Skywalker:")
+        self.luke_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
         self.luke_result_text = QTextEdit()
 
         # Add Luke page layout and widgets to stacked layout
@@ -126,6 +127,7 @@ class MainWindow(QWidget):
         self.vader_screen = QWidget()
         self.vader_layout = QGridLayout()
         self.vader_label = QLabel("Information on Darth Vader:")
+        self.vader_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.vader_result_text = QTextEdit()
 
         # add Vader page layout and widgets to stacked layout
@@ -138,6 +140,7 @@ class MainWindow(QWidget):
         self.kenobi_screen = QWidget()
         self.kenobi_layout = QGridLayout()
         self.kenobi_label = QLabel("Information on Obi-Wan Kenobi:")
+        self.kenobi_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.kenobi_result_text = QTextEdit()
 
         # add Kenobi page layout and widgets to stacked layout
@@ -152,6 +155,7 @@ class MainWindow(QWidget):
         self.falcon_screen = QWidget()
         self.falcon_layout = QGridLayout()
         self.falcon_label = QLabel("Information on the Millennium Falcon:")
+        self.falcon_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.falcon_result_text = QTextEdit()
 
         # add Falcon page layout and widgets to stacked layout
@@ -164,6 +168,7 @@ class MainWindow(QWidget):
         self.bwing_screen = QWidget()
         self.bwing_layout = QGridLayout()
         self.bwing_label = QLabel("Information on the B-Wing:")
+        self.bwing_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.bwing_result_text = QTextEdit()
 
         # add B-Wing page layout and widgets to stacked layout
@@ -176,6 +181,7 @@ class MainWindow(QWidget):
         self.death_screen = QWidget()
         self.death_layout = QGridLayout()
         self.death_label = QLabel("Information on the Death Star:")
+        self.death_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.death_result_text = QTextEdit()
 
         # add Death Star page layout and widgets to stacked layout
@@ -190,6 +196,7 @@ class MainWindow(QWidget):
         self.dagobah_screen = QWidget()
         self.dagobah_layout = QGridLayout()
         self.dagobah_label = QLabel("Information on Dagobah:")
+        self.dagobah_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.dagobah_result_text = QTextEdit()
 
         # add Dagobah page layout and widgets to stacked layout
@@ -202,6 +209,7 @@ class MainWindow(QWidget):
         self.utapau_screen = QWidget()
         self.utapau_layout = QGridLayout()
         self.utapau_label = QLabel("Information on Utapau:")
+        self.utapau_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.utapau_result_text = QTextEdit()
 
         # add Utapau page layout and widgets to stacked layout
@@ -214,6 +222,7 @@ class MainWindow(QWidget):
         self.coruscant_screen = QWidget()
         self.coruscant_layout = QGridLayout()
         self.coruscant_label = QLabel("Information on Coruscant:")
+        self.coruscant_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.coruscant_result_text = QTextEdit()
 
         # add Coruscant page layout and widgets to stacked layout
