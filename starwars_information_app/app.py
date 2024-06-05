@@ -37,12 +37,21 @@ class MainWindow(QWidget):
         self.vader_button.clicked.connect(self.people_vader)
         self.kenobi_button = QPushButton("Obi-Wan Kenobi")
         self.kenobi_button.clicked.connect(self.people_kenobi)
+        self.falcon_button = QPushButton("Millennium Falcon")
+        self.falcon_button.clicked.connect(self.starship_falcon)
+        self.bwing_button = QPushButton("B-Wing")
+        self.bwing_button.clicked.connect(self.starship_bwing)
+        self.death_button = QPushButton("Death Star")
+        self.death_button.clicked.connect(self.starship_death)
 
         # add nav buttons to the layout
         nav_layout.addWidget(self.home_button)
         nav_layout.addWidget(self.luke_button)
         nav_layout.addWidget(self.vader_button)
         nav_layout.addWidget(self.kenobi_button)
+        nav_layout.addWidget(self.falcon_button)
+        nav_layout.addWidget(self.bwing_button)
+        nav_layout.addWidget(self.death_button)
 
 
         # Create the stacked layout
@@ -90,6 +99,8 @@ class MainWindow(QWidget):
         self.home_screen.setLayout(self.home_layout)
         self.stacked_layout.addWidget(self.home_screen)
 
+        # People pages for star wars information
+
         # Create Luke Skywalker page
         self.luke_screen = QWidget()
         self.luke_layout = QGridLayout()
@@ -114,6 +125,56 @@ class MainWindow(QWidget):
         self.vader_layout.addWidget(self.vader_result_text)
         self.stacked_layout.addWidget(self.vader_screen)
 
+        # Create Obi-Wan Kenobi page
+        self.kenobi_screen = QWidget()
+        self.kenobi_layout = QGridLayout()
+        self.kenobi_label = QLabel("Information on Obi-Wan Kenobi:")
+        self.kenobi_result_text = QTextEdit()
+
+        # add Kenobi page layout and widgets to stacked layout
+        self.kenobi_layout.addWidget(self.kenobi_label)
+        self.kenobi_screen.setLayout(self.kenobi_layout)
+        self.kenobi_layout.addWidget(self.kenobi_result_text)
+        self.stacked_layout.addWidget(self.kenobi_screen)
+
+        # Starship pages for star wars information
+
+        # Create Millennium Falcon page
+        self.falcon_screen = QWidget()
+        self.falcon_layout = QGridLayout()
+        self.falcon_label = QLabel("Information on the Millennium Falcon:")
+        self.falcon_result_text = QTextEdit()
+
+        # add Falcon page layout and widgets to stacked layout
+        self.falcon_layout.addWidget(self.falcon_label)
+        self.falcon_screen.setLayout(self.falcon_layout)
+        self.falcon_layout.addWidget(self.falcon_result_text)
+        self.stacked_layout.addWidget(self.falcon_screen)
+
+        # Create B-Wing page
+        self.bwing_screen = QWidget()
+        self.bwing_layout = QGridLayout()
+        self.bwing_label = QLabel("Information on the B-Wing:")
+        self.bwing_result_text = QTextEdit()
+
+        # add B-Wing page layout and widgets to stacked layout
+        self.bwing_layout.addWidget(self.bwing_label)
+        self.bwing_screen.setLayout(self.bwing_layout)
+        self.bwing_layout.addWidget(self.bwing_result_text)
+        self.stacked_layout.addWidget(self.bwing_screen)
+
+        # Create Death Star page
+        self.death_screen = QWidget()
+        self.death_layout = QGridLayout()
+        self.death_label = QLabel("Information on the Death Star:")
+        self.death_result_text = QTextEdit()
+
+        # add Death Star page layout and widgets to stacked layout
+        self.death_layout.addWidget(self.death_label)
+        self.death_screen.setLayout(self.death_layout)
+        self.death_layout.addWidget(self.death_result_text)
+        self.stacked_layout.addWidget(self.death_screen)
+
         # Add nav and stacked layouts to the main layout
         self.layout.addLayout(nav_layout)
         self.layout.addLayout(self.stacked_layout)
@@ -135,6 +196,23 @@ class MainWindow(QWidget):
 
     def people_kenobi(self):
         self.stacked_layout.setCurrentIndex(3)
+        kenobi_results = controller.get_api_data("people", "10")
+        self.kenobi_result_text.setText(kenobi_results)
+
+    def starship_falcon(self):
+        self.stacked_layout.setCurrentIndex(4)
+        falcon_results = controller.get_api_data("starships", "10")
+        self.falcon_result_text.setText(falcon_results)
+
+    def starship_bwing(self):
+        self.stacked_layout.setCurrentIndex(5)
+        bwing_results = controller.get_api_data("starships", "29")
+        self.bwing_result_text.setText(bwing_results)
+
+    def starship_death(self):
+        self.stacked_layout.setCurrentIndex(6)
+        death_results = controller.get_api_data("starships", "9")
+        self.death_result_text.setText(death_results)
 
 def searching(self):
 
