@@ -30,34 +30,56 @@ class MainWindow(QWidget):
         # add nav buttons to the layout
         nav_layout = QHBoxLayout()
         self.home_button = QPushButton("Home")
+        self.home_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.home_button.clicked.connect(self.home_page)
+
+        # People Buttons
         self.luke_button = QPushButton("Luke Skywalker")
+        self.luke_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.luke_button.clicked.connect(self.people_luke)
         self.vader_button = QPushButton("Darth Vader")
+        self.vader_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.vader_button.clicked.connect(self.people_vader)
         self.kenobi_button = QPushButton("Obi-Wan Kenobi")
+        self.kenobi_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.kenobi_button.clicked.connect(self.people_kenobi)
+
+        # Starship Buttons
         self.falcon_button = QPushButton("Millennium Falcon")
+        self.falcon_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.falcon_button.clicked.connect(self.starship_falcon)
         self.bwing_button = QPushButton("B-Wing")
+        self.bwing_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.bwing_button.clicked.connect(self.starship_bwing)
         self.death_button = QPushButton("Death Star")
+        self.death_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.death_button.clicked.connect(self.starship_death)
+
+        # Planet Buttons
         self.dagobah_button = QPushButton("Dagobah")
+        self.dagobah_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.dagobah_button.clicked.connect(self.planet_dagobah)
         self.utapau_button = QPushButton("Utapau")
+        self.utapau_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.utapau_button.clicked.connect(self.planet_utapau)
         self.coruscant_button = QPushButton("Coruscant")
+        self.coruscant_button.setStyleSheet("QPushButton {color : #DDE6ED; font: bold 18px; background-color: #2E456D}");
         self.coruscant_button.clicked.connect(self.planet_coruscant)
 
         # add nav buttons to the layout
         nav_layout.addWidget(self.home_button)
+
+        # adding people buttons to nav bar
         nav_layout.addWidget(self.luke_button)
         nav_layout.addWidget(self.vader_button)
         nav_layout.addWidget(self.kenobi_button)
+
+        # adding starship buttons to nav bar
         nav_layout.addWidget(self.falcon_button)
         nav_layout.addWidget(self.bwing_button)
         nav_layout.addWidget(self.death_button)
+
+        # adding planet buttons to nav bar
         nav_layout.addWidget(self.dagobah_button)
         nav_layout.addWidget(self.utapau_button)
         nav_layout.addWidget(self.coruscant_button)
