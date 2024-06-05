@@ -22,7 +22,7 @@ class MainWindow(QWidget):
         super().__init__()
 
         self.setWindowTitle("Star Wars Information App")
-        self.resize(640, 480)
+        self.resize(640, 380)
         self.setStyleSheet("background-color: #3399FF;")
 
         self.layout = QVBoxLayout()
@@ -43,6 +43,12 @@ class MainWindow(QWidget):
         self.bwing_button.clicked.connect(self.starship_bwing)
         self.death_button = QPushButton("Death Star")
         self.death_button.clicked.connect(self.starship_death)
+        self.dagobah_button = QPushButton("Dagobah")
+        self.dagobah_button.clicked.connect(self.planet_dagobah)
+        self.utapau_button = QPushButton("Utapau")
+        self.utapau_button.clicked.connect(self.planet_utapau)
+        self.coruscant_button = QPushButton("Coruscant")
+        self.coruscant_button.clicked.connect(self.planet_coruscant)
 
         # add nav buttons to the layout
         nav_layout.addWidget(self.home_button)
@@ -52,6 +58,9 @@ class MainWindow(QWidget):
         nav_layout.addWidget(self.falcon_button)
         nav_layout.addWidget(self.bwing_button)
         nav_layout.addWidget(self.death_button)
+        nav_layout.addWidget(self.dagobah_button)
+        nav_layout.addWidget(self.utapau_button)
+        nav_layout.addWidget(self.coruscant_button)
 
 
         # Create the stacked layout
@@ -175,6 +184,44 @@ class MainWindow(QWidget):
         self.death_layout.addWidget(self.death_result_text)
         self.stacked_layout.addWidget(self.death_screen)
 
+        # Planet pages for star wars information
+
+        # Create Dagobah page
+        self.dagobah_screen = QWidget()
+        self.dagobah_layout = QGridLayout()
+        self.dagobah_label = QLabel("Information on Dagobah:")
+        self.dagobah_result_text = QTextEdit()
+
+        # add Dagobah page layout and widgets to stacked layout
+        self.dagobah_layout.addWidget(self.dagobah_label)
+        self.dagobah_screen.setLayout(self.dagobah_layout)
+        self.dagobah_layout.addWidget(self.dagobah_result_text)
+        self.stacked_layout.addWidget(self.dagobah_screen)
+
+        # Create Utapau page
+        self.utapau_screen = QWidget()
+        self.utapau_layout = QGridLayout()
+        self.utapau_label = QLabel("Information on Utapau:")
+        self.utapau_result_text = QTextEdit()
+
+        # add Utapau page layout and widgets to stacked layout
+        self.utapau_layout.addWidget(self.utapau_label)
+        self.utapau_screen.setLayout(self.utapau_layout)
+        self.utapau_layout.addWidget(self.utapau_result_text)
+        self.stacked_layout.addWidget(self.utapau_screen)
+
+        # Create Coruscant page
+        self.coruscant_screen = QWidget()
+        self.coruscant_layout = QGridLayout()
+        self.coruscant_label = QLabel("Information on Coruscant:")
+        self.coruscant_result_text = QTextEdit()
+
+        # add Coruscant page layout and widgets to stacked layout
+        self.coruscant_layout.addWidget(self.coruscant_label)
+        self.coruscant_screen.setLayout(self.coruscant_layout)
+        self.coruscant_layout.addWidget(self.coruscant_result_text)
+        self.stacked_layout.addWidget(self.coruscant_screen)
+
         # Add nav and stacked layouts to the main layout
         self.layout.addLayout(nav_layout)
         self.layout.addLayout(self.stacked_layout)
@@ -214,12 +261,20 @@ class MainWindow(QWidget):
         death_results = controller.get_api_data("starships", "9")
         self.death_result_text.setText(death_results)
 
-def searching(self):
+    def planet_dagobah(self):
+        self.stacked_layout.setCurrentIndex(7)
+        dagobah_results = controller.get_api_data("planets", "5")
+        self.dagobah_result_text.setText(dagobah_results)
 
-    # When starship combobox gets an item clicked get the data on the starship
-    if self.starship_combo.activated():
-        results = controller.get_api_data(self)
-        print(results)
+    def planet_utapau(self):
+        self.stacked_layout.setCurrentIndex(8)
+        utapau_results = controller.get_api_data("planets", "12")
+        self.utapau_result_text.setText(utapau_results)
+
+    def planet_coruscant(self):
+        self.stacked_layout.setCurrentIndex(9)
+        coruscant_results = controller.get_api_data("planets", "9")
+        self.coruscant_result_text.setText(coruscant_results)
 
 
 app = QApplication(sys.argv)
