@@ -138,6 +138,7 @@ class MainWindow(QWidget):
         self.luke_label = QLabel("Information on Luke Skywalker:")
         self.luke_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}");
         self.luke_result_text = QTextEdit()
+        self.luke_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # Add Luke page layout and widgets to stacked layout
         self.luke_layout.addWidget(self.luke_label)
@@ -151,6 +152,7 @@ class MainWindow(QWidget):
         self.vader_label = QLabel("Information on Darth Vader:")
         self.vader_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.vader_result_text = QTextEdit()
+        self.vader_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # add Vader page layout and widgets to stacked layout
         self.vader_layout.addWidget(self.vader_label)
@@ -164,6 +166,7 @@ class MainWindow(QWidget):
         self.kenobi_label = QLabel("Information on Obi-Wan Kenobi:")
         self.kenobi_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.kenobi_result_text = QTextEdit()
+        self.kenobi_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # add Kenobi page layout and widgets to stacked layout
         self.kenobi_layout.addWidget(self.kenobi_label)
@@ -179,6 +182,7 @@ class MainWindow(QWidget):
         self.falcon_label = QLabel("Information on the Millennium Falcon:")
         self.falcon_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.falcon_result_text = QTextEdit()
+        self.falcon_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # add Falcon page layout and widgets to stacked layout
         self.falcon_layout.addWidget(self.falcon_label)
@@ -192,6 +196,7 @@ class MainWindow(QWidget):
         self.bwing_label = QLabel("Information on the B-Wing:")
         self.bwing_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.bwing_result_text = QTextEdit()
+        self.bwing_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # add B-Wing page layout and widgets to stacked layout
         self.bwing_layout.addWidget(self.bwing_label)
@@ -205,6 +210,7 @@ class MainWindow(QWidget):
         self.death_label = QLabel("Information on the Death Star:")
         self.death_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.death_result_text = QTextEdit()
+        self.death_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # add Death Star page layout and widgets to stacked layout
         self.death_layout.addWidget(self.death_label)
@@ -220,6 +226,7 @@ class MainWindow(QWidget):
         self.dagobah_label = QLabel("Information on Dagobah:")
         self.dagobah_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.dagobah_result_text = QTextEdit()
+        self.dagobah_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # add Dagobah page layout and widgets to stacked layout
         self.dagobah_layout.addWidget(self.dagobah_label)
@@ -233,6 +240,7 @@ class MainWindow(QWidget):
         self.utapau_label = QLabel("Information on Utapau:")
         self.utapau_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.utapau_result_text = QTextEdit()
+        self.utapau_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # add Utapau page layout and widgets to stacked layout
         self.utapau_layout.addWidget(self.utapau_label)
@@ -246,6 +254,7 @@ class MainWindow(QWidget):
         self.coruscant_label = QLabel("Information on Coruscant:")
         self.coruscant_label.setStyleSheet("QLabel {color : #DDE6ED; font: bold 24px;}")
         self.coruscant_result_text = QTextEdit()
+        self.coruscant_result_text.setStyleSheet("QTextEdit {color : #DDE6ED; font: 20px;}")
 
         # add Coruscant page layout and widgets to stacked layout
         self.coruscant_layout.addWidget(self.coruscant_label)
@@ -306,6 +315,9 @@ class MainWindow(QWidget):
         self.stacked_layout.setCurrentIndex(9)
         coruscant_results = controller.get_api_data("planets", "9")
         self.coruscant_result_text.setText(coruscant_results)
+
+    def format_results(self):
+        pass
 
 
 app = QApplication(sys.argv)

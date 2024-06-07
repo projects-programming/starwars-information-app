@@ -14,7 +14,7 @@ def get_api_data(endpoint: str, query=""):
     response = re.get(url)
 
     if response.ok:
-        results = response.text
+        results = response.text     
     else:
         results = "Error!"
     return results
