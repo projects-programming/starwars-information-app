@@ -316,10 +316,6 @@ class MainWindow(QWidget):
         coruscant_results = controller.get_api_data("planets", "9")
         self.coruscant_result_text.setText(coruscant_results)
 
-    def format_results(self):
-        pass
-
-
 app = QApplication(sys.argv)
 window = MainWindow()
 window.show()
